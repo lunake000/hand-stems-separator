@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stem Flow | 测试指南</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f6f5;color:#202724;font:16px/1.8 system-ui,-apple-system,"PingFang SC",sans-serif;letter-spacing:0}main{max-width:880px;margin:auto;padding:48px 24px 72px}h1{font-size:36px;line-height:1.2;margin:0 0 12px}h2{font-size:23px;margin:36px 0 12px;border-bottom:1px solid #cdd7d1;padding-bottom:8px}h3{font-size:18px}p,ul,ol{margin:12px 0}li{margin:6px 0}a{color:#11684d}table{width:100%;border-collapse:collapse;background:white;margin:16px 0}th,td{text-align:left;border:1px solid #cdd7d1;padding:10px;vertical-align:top}th{background:#e7eee9}code{font-size:14px;overflow-wrap:anywhere}pre{padding:16px;background:#e7eee9;white-space:pre-wrap;overflow-wrap:anywhere}.meta{color:#56645d}footer{margin-top:40px;border-top:1px solid #cdd7d1;padding-top:16px;font-size:14px}@media(max-width:500px){main{padding:28px 16px}th,td{padding:7px;font-size:14px}}@media print{body{background:white}main{max-width:none;padding:0}h2,h3{break-after:avoid}tr,pre{break-inside:avoid}a{color:inherit}}
+</style>
+<main>
+<h1>Stem Flow</h1>
+<p class="meta">朋友测试指南 · 测试版 2026-10-12<br>游戏界面为英文，本指南使用中文说明。</p>
+<p>本包为 Drag Fix 拖动修复版：修复识别器短暂漏帧时清除拖动状态、导致 Reverb 数值停止响应的问题。短暂恢复时从当前位置继续，松手、长时间丢失追踪或换手后会结束旧拖动。保留上一版的渲染优化。本次请重点复测 Reverb 持续调节，以及完成练习后是否仍可继续调整。若 Next 不响应，也请尝试鼠标点击 Next，并分别记录结果。</p>
+<p><a href="Stem_Flow_Intro.html">打开游戏 Stem_Flow_Intro.html</a></p>
+<h2>1. 开始测试</h2>
+<ol>
+<li>先完整解压压缩包，再打开其中的 <code>Stem_Flow_Intro.html</code>。不要直接在压缩包预览窗口里运行。</li>
+<li>使用电脑浏览器打开，保持联网。音乐已内嵌，但手势识别模型需要在线加载。</li>
+<li>第一次玩选择 <strong>Intro</strong>（教学）；熟悉后选择 <strong>Play song</strong>（直接混音）。</li>
+<li>点击 <strong>Enable Camera</strong>，允许摄像头权限。等待 Camera 和 Hand model 就绪。</li>
+<li>点击 <strong>Start</strong>，将手放进镜头，保持可见，等待倒计时完成。</li>
+</ol>
+<p>测试时尽量让整只手清晰入镜，避免背光。先用单手测试，再尝试双手。需要录制时，在开始前勾选 <strong>Record camera + remix audio after start</strong>；录制包含摄像头画面和混音音频。</p>
+<h2>2. 手势操作</h2>
+<table><thead><tr><th>操作</th><th>手势</th></tr></thead><tbody>
+<tr><td>调节音量</td><td>在目标音轨区域捏合拇指和食指，上下移动；松开后保留当前音量。</td></tr>
+<tr><td>进入 FX</td><td>在目标音轨区域竖起拇指，其他手指收拢，保持稳定。</td></tr>
+<tr><td>调节效果</td><td>在 Reverb、Delay 或 Filter 区域捏合，上下移动。</td></tr>
+<tr><td>退出 FX</td><td>在右下角 Quit 区域竖起拇指，保持稳定。</td></tr>
+<tr><td>再次使用拇指指令</td><td>先松开手势，再重新竖拇指。保持同一个拇指姿势不会连续切换。</td></tr>
+<tr><td>教学下一步</td><td>完成当前练习后，在 Next 上先松开，再捏合保持。Next 与 Quit 使用不同手势。</td></tr>
+</tbody></table>
+<p>操作时尽量位于象限内部。正在捏合调节时，控制目标会保持锁定；当前只允许一只手拖动数值。</p>
+<table><thead><tr><th>位置</th><th>主界面</th><th>FX 界面</th></tr></thead><tbody>
+<tr><td>左上</td><td>Vocal / Vocals</td><td>Reverb</td></tr>
+<tr><td>左下</td><td>Bass</td><td>Delay</td></tr>
+<tr><td>右上</td><td>Drums</td><td>Filter</td></tr>
+<tr><td>右下</td><td>Other</td><td>Quit</td></tr>
+</tbody></table>
+<p><strong>Space：</strong>暂停／继续。<strong>M：</strong>正式混音时清除全部效果。教学中可暂停后使用跳过当前步骤或全部教学的按钮。Help 内的 Quit 按钮用于关闭帮助窗口。</p>
+<h2>3. 建议测试顺序</h2>
+<ol>
+<li><strong>完成 Intro：</strong>依次尝试音量、进入 FX、三种效果、退出 FX，再开始四轨混音。</li>
+<li><strong>检查实时反馈：</strong>连续上下调节每个音轨，观察百分比、动画和声音是否跟随。三种效果分别重复，注意中央显示是否对应正在调节的效果。</li>
+<li><strong>检查误进入：</strong>正常捏合、松开、移动到其他象限，观察是否意外进入 FX。</li>
+<li><strong>检查误退出：</strong>调整三种效果，手经过右下区域但不竖拇指，确认没有意外回到主界面。</li>
+<li><strong>检查有意切换：</strong>在音轨内竖拇指进入 FX，松开，再在 Quit 内竖拇指退出。重复几次，记录漏识别或误触。</li>
+<li><strong>检查追踪恢复：</strong>将手短暂移出镜头后重新进入，再尝试双手，观察是否出现数值突跳或界面意外切换。</li>
+</ol>
+<p>防误触逻辑会要求拇指姿势稳定后再切换；音量和效果拖动不需要等待这个切换确认过程。</p>
+<h2>4. 遇到问题</h2>
+<ul>
+<li><strong>摄像头打不开：</strong>检查浏览器和系统摄像头权限，关闭其他占用摄像头的程序，再刷新页面。</li>
+<li><strong>模型一直加载：</strong>确认网络可以访问 jsDelivr；首次加载需要下载识别资源。</li>
+<li><strong>本地文件无法使用摄像头：</strong>有 Python 3 的电脑可在解压目录运行 <code>python3 -m http.server 8000</code>（Windows 可尝试 <code>py -m http.server 8000</code>），再访问 <code>http://localhost:8000/Stem_Flow_Intro.html</code>。测试结束按 Ctrl+C 停止服务。</li>
+<li><strong>明显卡顿：</strong>先关闭录制和其他占用资源的应用，再测试同样的动作，记录是否改善。</li>
+<li><strong>录制格式：</strong>取决于浏览器支持，可能输出 MP4 或 WebM。</li>
+</ul>
+<h2>5. 反馈模板</h2>
+<pre>电脑型号 / 操作系统：
+浏览器及版本：
+测试模式：Intro / Play song
+是否开启录制：
+使用单手还是双手：
+问题发生在哪个音轨 / 效果：
+当时的手势与位置：
+预期发生什么：
+实际发生什么：
+重复几次，出现几次：
+延迟体感：顺畅 / 稍慢 / 明显慢 / 卡住
+截图或短视频（可选）：</pre>
+<h2>6. 源代码与验证</h2>
+<p>以下文件放在同一目录。无需 Node.js 即可测试游戏；修改和构建源码时需要 Node.js。</p>
+<table><thead><tr><th>文件</th><th>用途</th></tr></thead><tbody>
+<tr><td><code>Stem_Flow_Intro.html</code></td><td>可运行游戏，也包含完整界面、音频与渲染源码以及内嵌资源。</td></tr>
+<tr><td><code>stem-intro-controls.js</code></td><td>手势稳定、防误触和教学流程的可编辑源代码。</td></tr>
+<tr><td><code>build-stem-intro.cjs</code></td><td>将手势源代码重新嵌入 HTML，并检查脚本语法。</td></tr>
+<tr><td><code>test-*.cjs</code></td><td>不依赖摄像头的模拟回归测试。</td></tr>
+</tbody></table>
+<p>修改手势或教学时编辑 JS；修改界面、音频或渲染时编辑 HTML。之后在本目录执行：</p>
+<pre>node build-stem-intro.cjs
+node test-stem-intro.cjs
+node test-gesture-safety.cjs
+node test-feedback-unit.cjs</pre>
+<p>本版已通过脚本语法检查及上述三组模拟测试。额外的 <code>test-reverb-render.cjs</code> 验证雾面绘制与零强度 Filter 的跳过逻辑；需先安装 <code>@napi-rs/canvas</code>，再运行 <code>node test-reverb-render.cjs</code>。真实摄像头下的识别准确度、设备帧率和浏览器兼容性仍需要本次朋友测试确认。</p>
+<footer>Stem Flow · Test Package · 2026-10-12<br>可通过浏览器打印功能将本指南另存为 PDF。</footer>
+</main>
+</html>
